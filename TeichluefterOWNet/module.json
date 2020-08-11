@@ -3,7 +3,7 @@
     "name": "Teichluefter OWNet",
     "type": 2,
     "vendor": "Teichluefter.de",
-    "aliases": ['Teichluefter OWNet Splitter'],
+    "aliases": ["Teichluefter OWNet Splitter"],
     "parentRequirements": [],
     "childRequirements": [
         "{652AEB75-1C66-534D-85AC-89D599CE4BF6}"
