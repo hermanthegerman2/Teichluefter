@@ -7,11 +7,13 @@ require_once __DIR__ . "/../libs/TLConstants.php"; // Victron Daten Library
 require_once __DIR__ . '/../libs/OWNet.php';  // Ownet.php from owfs distribution
 require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
 
+
 	class TeichluefterOWNet extends IPSModule {
 
         //use ModuleHelper;
         use TeichluefterTLConstants;
         use TeichluefterImagesLib;
+
 
 		public function Create()
 		{
@@ -34,6 +36,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             // Statusvariablen anlegen
             $this->RegisterVariableBoolean("ConnectionStatus", $this->Translate("ConnectionStatus"), "~Alert.Reversed", 40);
             $this->DisableAction("ConnectionStatus");
+
+            $OWNet_Device_List = '';
 
             //timer
             /* $this->RegisterTimer('Update', 0, $this->module_data["prefix"] . '_UpdateEvent($_IPS[\'TARGET\']);');
@@ -118,21 +122,21 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $formElements[] = [
                 "type" => "List",
                 "name" => "Devices",
-                "caption" => "Devices",
+                "caption" => $this->Translate("OWNet Devices"),
                 "add" => true,
                 "delete" => true,
                 "sort" => [
-                    "column" => "name",
+                    "column" => "Typ",
                     "direction" => "ascending"
                 ],
                 "columns" => [[
-                    "label" => "InstanceID",
-                    "name" => "instanceID",
-                    "width" => "75px",
+                    "label" => "Typ",
+                    "name" => "Typ",
+                    "width" => "150px",
                     "add" => 0,
                     "save" => 1,
                     "edit" => [
-                        "type" => "SelectInstance"
+                        "type" => "List"
                     ]
                 ],[
                     "label" => "Name",
@@ -140,7 +144,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                     "width" => "auto",
                     "add" => ""
                 ]],
-                "values" => []
+                "values" => $OWNet_Device_List
             ];
 
             $formElements[] = [
@@ -160,7 +164,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $formActions[] = [
                 'type'    => 'Button',
                 'caption' => 'Search Devices',
-                'onClick' => $this->Query()
+                'onClick' => $OWNet_Device_List = $this->Query()
             ];
 
             return $formActions;
@@ -249,11 +253,13 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                         //print " Alias '$alias',Temp $temp\n";
                                         $caps .= ';Temp';
                                         $this->_log('OWNet', $data);
+                                        $OWNet_Device_List = $OWNet_Device_List && $data;
                                     }
                                     break;
                                 default:
                                     $this->_log('OWNet', "$id ($alias): Type $type Family $fam not implemented yet");
                             }
+                            return $OWNet_Device_List;
                         } //for
                     } else {
                         //no device fount
