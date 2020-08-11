@@ -137,7 +137,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                 If (count($OWDeviceArray)) {
                     $arrayOWValues = array();
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
-                        $arrayOWValues[] = array("Name" => $OWDeviceArray[$i][0], "Id" => $OWDeviceArray[$i][1], "Typ" => $OWDeviceArray[$i][2], "Temp" => $OWDeviceArray[$i][3], "rowColor" => $OWDeviceArray[$i][4]);
+                        $arrayOWValues[] = array("Name" => $OWDeviceArray[$i][0], "Id" => $OWDeviceArray[$i][1], "Typ" => $OWDeviceArray[$i][2], "Temp" => $OWDeviceArray[$i][3], "rowColor" => $OWDeviceArray[$i][2]);
                     }
                     $formElements[] = array("type" => "List", "name" => "OW_Devices", "caption" => "1-Wire-Devices", "rowCount" => 5, "add" => false, "delete" => false, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
                     $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
