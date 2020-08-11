@@ -134,7 +134,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                 $this->OWSearchStart();
                 $OWDeviceArray = json_decode($this->GetBuffer('OWDeviceArray'));
                 $this->_log('OWNet KonfigurationData', $OWDeviceArray);
-                If (count($OWDeviceArray , COUNT_RECURSIVE) >= 4) {
+                If (count($OWDeviceArray)) {
                     $arrayOWValues = array();
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
                         $this->_log('OWNet KonfigurationData', "Name: ".$OWDeviceArray[$i][0]." Id: ".$OWDeviceArray[$i][1]." Typ: ".$OWDeviceArray[$i][2]." Temp: ".$OWDeviceArray[$i][3]);
