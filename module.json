@@ -1,9 +1,9 @@
 {
     "id": "{8492FB1E-0A0B-F399-4FFE-459CC7D5863C}",
-    "name": "Teichluefter",
-    "type": 3,
-    "vendor": "",
-    "aliases": [],
+    "name": "Teichluefter Konfigurator",
+    "type": 4,
+    "vendor": "Teichluefter.de",
+    "aliases": ['Teichluefter Konfigurator'],
     "parentRequirements": [
         "{69BA421E-CBB6-73B1-031E-40F7B87DB050}"
     ],
@@ -11,6 +11,6 @@
     "implemented": [
         "{652AEB75-1C66-534D-85AC-89D599CE4BF6}"
     ],
-    "prefix": "TL",
+    "prefix": "TLKonfig",
     "url": ""
 }
