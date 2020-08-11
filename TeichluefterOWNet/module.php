@@ -7,7 +7,7 @@ require_once __DIR__ . "/../libs/TLConstants.php"; // Victron Daten Library
 require_once __DIR__ . '/../libs/OWNet.php';  // Ownet.php from owfs distribution
 require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
 
-	class TeichluefterIPS2GPIO extends IPSModule {
+	class TeichluefterOWNNet extends IPSModule {
 
         //use ModuleHelper;
         use TeichluefterTLConstants;
