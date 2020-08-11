@@ -260,7 +260,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                             }
                         }
                         $this->_log('OWNet Device Array', $OWDeviceArray);
-                        $this->SetBuffer('OWDeviceArray', implode(',', $OWDeviceArray));
+                        $OWDeviceArray = implode(',', $OWDeviceArray);
+                        $this->SetBuffer('OWDeviceArray', $OWDeviceArray);
                     } else {
                         //no device fount
                         $this->_log('OWNet', "No 1Wire Device found");
