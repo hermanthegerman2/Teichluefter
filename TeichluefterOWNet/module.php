@@ -130,7 +130,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "180px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "220px", "add" => "");
 
-            If ($this->GetBuffer("OW_Handle") = 0) {
+            If ($this->GetBuffer("OW_Handle") == 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
                 $this->OWSearchStart();
             }
