@@ -10,4 +10,3 @@ trait TeichluefterImagesLib
         return $img;
     }
 }
-<?php
