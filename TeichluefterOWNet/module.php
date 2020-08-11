@@ -132,10 +132,11 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
                 $this->OWSearchStart();
                 $OWDeviceArray = json_decode($this->GetBuffer('OWDeviceArray'));
+                $this->_log('OWNet Device Array', $OWDeviceArray);
                 If (count($OWDeviceArray , COUNT_RECURSIVE) >= 4) {
                     $arrayOWValues = array();
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
-                        $arrayOWValues[] = array("DeviceTyp" => $OWDeviceArray[$i][0], "DeviceSerial" => $OWDeviceArray[$i][1], "InstanceID" => $OWDeviceArray[$i][2], "DeviceStatus" => $OWDeviceArray[$i][3], "rowColor" => $OWDeviceArray[$i][4]);
+                        $arrayOWValues[] = array("Name" => $OWDeviceArray[$i][1], "Id" => $OWDeviceArray[$i][2], "Typ" => $OWDeviceArray[$i][3], "Temp" => $OWDeviceArray[$i][4], "rowColor" => $OWDeviceArray[$i][4]);
                     }
                     $formElements[] = array("type" => "List", "name" => "OW_Devices", "caption" => "1-Wire-Devices", "rowCount" => 5, "add" => false, "delete" => false, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
                     $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
