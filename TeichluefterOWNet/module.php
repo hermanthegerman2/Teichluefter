@@ -124,10 +124,10 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $arraySort = array("column" => "Typ", "direction" => "ascending");
             // Tabelle für die gefundenen 1-Wire-Devices
             $arrayOWColumns = array();
-            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "", "onClick" => $this->AddOWNetDevice(), "confirm" => $this->Translate("Do you want to add the device?"));
             $arrayOWColumns[] = array("caption" => "Name", "name" => "Name", "width" => "120px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "180px", "add" => "");
-            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "auto", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "220px", "add" => "");
 
             If ($this->GetBuffer("OW_Handle") >= 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
@@ -138,7 +138,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
                         $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp']);
                     }
-                    $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => true, "delete" => true, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
+                    $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => false, "delete" => true, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
                     $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
                 }
                 else {
