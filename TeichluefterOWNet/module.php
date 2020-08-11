@@ -205,8 +205,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                     //walk through the retrieved tree
                     $dirs = explode(",", $ow_dir['data_php']);
                     if (is_array($dirs) && (count($dirs) > 0)) {
+                        $i = 0;
                         foreach ($dirs as $dev) {
-                            #print_r($ow->dir($dev));
                             $data = array();
                             $caps = '';
                             /* read standard device details */
@@ -252,7 +252,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                         //print " Alias '$alias',Temp $temp\n";
                                         $caps .= ';Temp';
                                         $this->_log('OWNet Device', $data);
-                                        $OWDeviceArray[$dirs] = $data;
+                                        $OWDeviceArray[$i] = $data;
+                                        $i = ++$i;
                                     }
                                     break;
                                 default:
