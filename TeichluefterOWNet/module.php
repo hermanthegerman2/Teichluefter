@@ -133,7 +133,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
                 $this->OWSearchStart();
                 $OWDeviceArray = json_decode($this->GetBuffer('OWDeviceArray'), true);
-                If (count($OWDeviceArray)) {
+                If (count($OWDeviceArray) > 0 ) {
                     $arrayOWValues = array();
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
                         $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp']);
