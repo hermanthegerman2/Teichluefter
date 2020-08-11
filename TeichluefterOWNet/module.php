@@ -237,7 +237,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                 case '28': //DS18B20 temperature sensors
                                 case '10': //DS18S20 temperature sensors
                                 case '22': //DS1820 temperature sensors
-                                    $temp = trim($ow->read("$dev/temperature", true));
+                                    $temp = $ow->read("$dev/temperature", true);
                                     $temp = str_replace(",", ".", $temp);
                                     if (strlen($temp) > 0) {
                                         //store new temperature value
