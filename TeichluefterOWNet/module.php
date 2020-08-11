@@ -126,7 +126,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             // Tabelle für die gefundenen 1-Wire-Devices
             $arrayOWColumns = array();
             $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
-            $arrayOWColumns[] = array("caption" => "Name", "name" => "Name", "width" => "120px", "add" => "");
+            //$arrayOWColumns[] = array("caption" => "Name", "name" => "Name", "width" => "120px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "130px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "60px", "add" => "");
 
@@ -138,7 +138,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             If (count($OWDeviceArray) > 0 ) {
                 $arrayOWValues = array();
                 for ($i = 0; $i < Count($OWDeviceArray); $i++) {
-                    $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp'], "Weitere Parameter" => array("type" => "Button", "caption" => "Ausgabe", "onClick" => $this->AddOWNetDevice()));
+                    $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], /*"Name" => $OWDeviceArray[$i]['Name'],*/ "Temp" => $OWDeviceArray[$i]['Temp'], "options" => array("type" => "Button", "caption" => "add Device", "onClick" => $this->AddOWNetDevice()));
                 }
                 $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => false, "delete" => false, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
             }
