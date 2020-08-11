@@ -29,9 +29,9 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $this->RegisterPropertyInteger('UpdateInterval', 30);
             $this->RegisterPropertyString('Host', '127.0.0.1');
 
-            $this->RegisterPropertyBoolean("debug", true);
-            $this->RegisterPropertyBoolean("log", true);
-            $this->RegisterPropertyBoolean("AutoRestart", true);
+            $this->RegisterPropertyBoolean('debug', true);
+            $this->RegisterPropertyBoolean('log', true);
+            $this->RegisterPropertyBoolean('AutoRestart', true);
             $this->RegisterPropertyBoolean('AutoCreate', true);
             // Statusvariablen anlegen
             $this->RegisterVariableBoolean("ConnectionStatus", $this->Translate("ConnectionStatus"), "~Alert.Reversed", 40);
@@ -39,6 +39,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
 
             $OWDeviceArray = array();
             $this->SetBuffer("OWDeviceArray", serialize($OWDeviceArray));
+            $this->SetBuffer('OW_Handle', 0);
 
             //timer
             /* $this->RegisterTimer('Update', 0, $this->module_data["prefix"] . '_UpdateEvent($_IPS[\'TARGET\']);');
