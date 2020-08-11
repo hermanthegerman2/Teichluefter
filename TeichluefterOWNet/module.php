@@ -127,8 +127,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $arrayOWColumns = array();
             $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Name", "name" => "Name", "width" => "120px", "add" => "");
-            $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "170px", "add" => "");
-            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "205px", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "130px", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "60px", "add" => "");
 
             If ($this->GetBuffer("OW_Handle") == 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
@@ -138,9 +138,9 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             If (count($OWDeviceArray) > 0 ) {
                 $arrayOWValues = array();
                 for ($i = 0; $i < Count($OWDeviceArray); $i++) {
-                    $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp'], "type" => "Button", "caption" => "Ausgabe", "onClick" => $this->AddOWNetDevice());
+                    $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp'], "Weitere Parameter" => array("type" => "Button", "caption" => "Ausgabe", "onClick" => $this->AddOWNetDevice()));
                 }
-                $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => true, "delete" => true, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
+                $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => false, "delete" => false, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
             }
             else {
                 $formElements[] = array("type" => "Label", "label" => $this->Translate("no 1-Wire devices found"));
