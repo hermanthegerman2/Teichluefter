@@ -129,21 +129,21 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "180px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "220px", "add" => "");
 
-            If ($this->GetBuffer("OW_Handle") >= 0) {
+            If ($this->GetBuffer("OW_Handle") = 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
                 $this->OWSearchStart();
-                $OWDeviceArray = json_decode($this->GetBuffer('OWDeviceArray'), true);
-                If (count($OWDeviceArray) > 0 ) {
-                    $arrayOWValues = array();
-                    for ($i = 0; $i < Count($OWDeviceArray); $i++) {
-                        $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp']);
-                    }
-                    $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => false, "delete" => true, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
-                    $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
+            }
+            $OWDeviceArray = json_decode($this->GetBuffer('OWDeviceArray'), true);
+            If (count($OWDeviceArray) > 0 ) {
+                $arrayOWValues = array();
+                for ($i = 0; $i < Count($OWDeviceArray); $i++) {
+                    $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp']);
                 }
-                else {
-                    $formElements[] = array("type" => "Label", "label" => $this->Translate("no 1-Wire devices found"));
-                }
+                $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => true, "delete" => true, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
+                $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
+            }
+            else {
+                $formElements[] = array("type" => "Label", "label" => $this->Translate("no 1-Wire devices found"));
             }
 
             $formElements[] = [
@@ -260,6 +260,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                         }
                         $this->_log('OWNet Device Array', $OWDeviceArray);
                         $this->SetBuffer('OWDeviceArray', json_encode($OWDeviceArray));
+                        $this->SetBuffer('OW_Handle', 1);
                     } else {
                         //no device fount
                         $this->_log('OWNet', "No 1Wire Device found");
