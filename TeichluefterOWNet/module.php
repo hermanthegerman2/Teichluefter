@@ -127,7 +127,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $arrayOWColumns = array();
             $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "130px", "add" => "");
-            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "60px", "add" => "", "edit" => array("type" => "CheckBox"));
+            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "60px", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Add", "name" => "Add", "width" => "30px", "add" => "", "edit" => array("type" => "CheckBox"));
 
             If ($this->GetBuffer("OW_Handle") == 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
