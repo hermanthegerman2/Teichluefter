@@ -131,7 +131,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             If ($this->GetBuffer("OW_Handle") >= 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
                 $this->OWSearchStart();
-                $OWDeviceArray = explode($this->GetBuffer('OWDeviceArray'));
+                $OWDeviceArray = explode(',', $this->GetBuffer('OWDeviceArray'));
                 If (count($OWDeviceArray , COUNT_RECURSIVE) >= 4) {
                     $arrayOWValues = array();
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
@@ -260,7 +260,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                             }
                         }
                         $this->_log('OWNet Device Array', $OWDeviceArray);
-                        $this->SetBuffer('OWDeviceArray', implode($OWDeviceArray));
+                        $this->SetBuffer('OWDeviceArray', implode(',', $OWDeviceArray));
                     } else {
                         //no device fount
                         $this->_log('OWNet', "No 1Wire Device found");
