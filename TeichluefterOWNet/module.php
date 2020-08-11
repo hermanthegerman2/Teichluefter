@@ -248,7 +248,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                         $data['Temp'] = sprintf("%4.2F", $temp);
                                         //print " Alias '$alias',Temp $temp\n";
                                         $caps .= ';Temp';
-                                        $this->_log('OWNet', "$data");
+                                        $this->_log('OWNet', $data);
                                     }
                                     break;
                                 default:
