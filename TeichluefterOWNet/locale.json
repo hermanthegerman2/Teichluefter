@@ -1,0 +1,26 @@
+{
+    "translations": {
+        "de": {
+            "England": "England",
+            "Germany": "Deutschland",
+            "enable Logging": "Nachrichten im Log aktiv",
+            "enable debug messages": "Debug Nachrichten aktiv",
+            "Language": "Sprache",
+            "ConnectionStatus": "Verbindungsstatus",
+            "___ Options _______________________________________________________________________________________________________________": "___ Einstellungen ___________________________________________________________________________________________________________",
+            "Client Socket Connection": "Client Socket Verbindung",
+            "___ OWNet Client Socket Connection Parameters _____________________________________________________________________________": "___ OWNet Client Socket Verbindungs Parameter _______________________________________________________________________________",
+            "Serial Port Connection:": "Serial Port Verbindung",
+            "___ OWNet Devices _________________________________________________________________________________________________________": "___ OWNet Geräte ____________________________________________________________________________________________________________",
+            "Search Devices": "Geräte suchen",
+
+
+            "Instance getting created": "Instanz wird erstellt",
+            "Instance is active": "Instanz ist aktiv",
+            "Instance is deleted": "Instanz wird gelöscht",
+            "Instance is inactive": "Instanz ist inaktiv",
+            "Instance is not created": "Instanz wurde nicht erzeugt",
+            "Instance Error": "Instanz fehlerhaft"
+        }
+    }
+}
