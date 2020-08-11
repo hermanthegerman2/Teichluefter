@@ -25,14 +25,14 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $this->RegisterPropertyInteger('ParentCategory', 0); //parent cat is root
             $this->RegisterPropertyInteger('Port', 4304);
             $this->RegisterPropertyInteger('UpdateInterval', 30);
-            $this->RegisterPropertyString('Host', '');
+            $this->RegisterPropertyString('Host', '127.0.0.1');
 
             $this->RegisterPropertyBoolean("debug", true);
             $this->RegisterPropertyBoolean("log", true);
             $this->RegisterPropertyBoolean("AutoRestart", true);
             $this->RegisterPropertyBoolean('AutoCreate', true);
             // Statusvariablen anlegen
-            $this->RegisterVariableBoolean("ConnectionStatus", "ConnectionStatus", "~Alert.Reversed", 40);
+            $this->RegisterVariableBoolean("ConnectionStatus", $this->Translate("ConnectionStatus"), "~Alert.Reversed", 40);
             $this->DisableAction("ConnectionStatus");
 
             //timer
@@ -105,8 +105,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                 "caption" => $this->Translate("OWNet Host")
             ];
             $formElements[] = [
-                "type" => "CheckBox",
-                "name" => "NumberSpinner",
+                "type" => "NumberSpinner",
+                "name" => "Port",
                 "caption" => $this->Translate("OWNet Port")
             ];
 
