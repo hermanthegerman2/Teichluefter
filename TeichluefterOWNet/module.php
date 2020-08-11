@@ -252,14 +252,14 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                         $data['Temp'] = sprintf("%4.2F", $temp);
                                         //print " Alias '$alias',Temp $temp\n";
                                         $caps .= ';Temp';
-                                        $this->_log('OWNet', $data);
-                                        $OWDeviceArray = $OWDeviceArray && $data;
+                                        $this->_log('OWNet Device', $data);
+                                        $OWDeviceArray = $OWDeviceArray && array($data);
                                     }
                                     break;
                                 default:
                                     $this->_log('OWNet', "$id ($alias): Type $type Family $fam not implemented yet");
                             }
-                            $this->_log('OWNet', $OWDeviceArray);
+                            $this->_log('OWNet Device Array', $OWDeviceArray);
                             $this->SetBuffer('OWDeviceArray', $OWDeviceArray);
                         } //for
                     } else {
