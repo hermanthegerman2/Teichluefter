@@ -245,7 +245,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                     $temp = str_replace(",", ".", $temp);
                                     if (strlen($temp) > 0) {
                                         //store new temperature value
-                                        $this->_log('OWNet', "$type $id ($alias): $temp");
+                                        //$this->_log('OWNet', "$type $id ($alias): $temp");
                                         $data['Name'] = $name;
                                         $data['Id'] = $addr;
                                         $data['Typ'] = $type;
