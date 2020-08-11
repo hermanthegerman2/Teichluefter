@@ -195,7 +195,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
          */
         public function OWSearchStart()
         {
-            $OWDeviceArray = '';
+            $OWDeviceArray = array();
             $ow = new OWNet("tcp://" . $this->ReadPropertyString('Host') . ':' . $this->ReadPropertyInteger('Port'));
             if ($ow) {
                 //we are connected, proceed
@@ -253,14 +253,15 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                         //print " Alias '$alias',Temp $temp\n";
                                         $caps .= ';Temp';
                                         $this->_log('OWNet Device', $data);
-                                                                            }
+                                        $OWDeviceArray[$dev] = $data;
+                                    }
                                     break;
                                 default:
                                     $this->_log('OWNet', "$id ($alias): Type $type Family $fam not implemented yet");
                             }
                         }
-                        $this->_log('OWNet Device Array', $data);
-                        $this->SetBuffer('OWDeviceArray', $data);
+                        $this->_log('OWNet Device Array', $OWDeviceArray);
+                        $this->SetBuffer('OWDeviceArray', $OWDeviceArray);
                     } else {
                         //no device fount
                         $this->_log('OWNet', "No 1Wire Device found");
