@@ -142,7 +142,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                     $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
                 }
                 else {
-                    $formElements[] = array("type" => "Label", "label" => $this->Translate("no 1-Wire devices found");
+                    $formElements[] = array("type" => "Label", "label" => $this->Translate("no 1-Wire devices found"));
                 }
             }
 
