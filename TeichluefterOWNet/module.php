@@ -37,8 +37,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $this->RegisterVariableBoolean("ConnectionStatus", $this->Translate("ConnectionStatus"), "~Alert.Reversed", 40);
             $this->DisableAction("ConnectionStatus");
 
-            $OWNet_Device_List = '';
-
+            $this->RegisterAttributeString('OWNet_Device_List', '');
             //timer
             /* $this->RegisterTimer('Update', 0, $this->module_data["prefix"] . '_UpdateEvent($_IPS[\'TARGET\']);');
 
@@ -144,7 +143,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                     "width" => "auto",
                     "add" => ""
                 ]],
-                "values" => $OWNet_Device_List
+                "values" => $this->ReadAttributeString('OWNet_Device_List')
             ];
 
             $formElements[] = [
@@ -259,7 +258,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                 default:
                                     $this->_log('OWNet', "$id ($alias): Type $type Family $fam not implemented yet");
                             }
-                            return $OWNet_Device_List;
+                            $this->WriteAttributeString('OWNet_Device_List', $OWNet_Device_List);
                         } //for
                     } else {
                         //no device fount
