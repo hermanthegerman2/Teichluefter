@@ -11,7 +11,6 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
 
         //use ModuleHelper;
         use TeichluefterTLConstants;
-        use OWNet;
         use TeichluefterImagesLib;
 
 		public function Create()
