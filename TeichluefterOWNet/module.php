@@ -259,6 +259,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                 default:
                                     $this->_log('OWNet', "$id ($alias): Type $type Family $fam not implemented yet");
                             }
+                            $this->_log('OWNet', $OWDeviceArray);
                             $this->SetBuffer('OWDeviceArray', $OWDeviceArray);
                         } //for
                     } else {
