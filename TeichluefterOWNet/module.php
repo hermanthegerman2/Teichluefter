@@ -36,7 +36,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $this->DisableAction("ConnectionStatus");
 
             //timer
-            $this->RegisterTimer('Update', 0, $this->module_data["prefix"] . '_UpdateEvent($_IPS[\'TARGET\']);');
+            /* $this->RegisterTimer('Update', 0, $this->module_data["prefix"] . '_UpdateEvent($_IPS[\'TARGET\']);');
 
 
             if (IPS_GetKernelRunlevel() == self::KR_READY) {
@@ -50,7 +50,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                     $this->SetStatus(self::ST_INACTIV);
                     $this->SetTimerInterval('Update', 0);
                 }
-            }
+            }*/
 
 
         }
@@ -79,7 +79,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
 
         private function GetFormElements()
         {
-            $Connection_Type = $this->ReadPropertyString('Connection_Type');
+            // $Connection_Type = $this->ReadPropertyString('Connection_Type');
             $formElements[] = [
                 'type'    => 'Label',
                 'caption' => $this->Translate('___ Options _______________________________________________________________________________________________________________')
