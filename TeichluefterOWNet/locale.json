@@ -14,7 +14,7 @@
             "___ OWNet Devices _________________________________________________________________________________________________________": "___ OWNet Geräte ____________________________________________________________________________________________________________",
             "Search Devices": "Geräte suchen",
             "OWNet Devices": "OWNet Geräte",
-
+            "no 1-Wire devices found": "Es wurden keine 1-Wire-Devices gefunden.",
             "Instance getting created": "Instanz wird erstellt",
             "Instance is active": "Instanz ist aktiv",
             "Instance is deleted": "Instanz wird gelöscht",

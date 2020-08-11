@@ -121,29 +121,28 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             ];
 
             $arraySort = array();
-            $arraySort = array("column" => "DeviceTyp", "direction" => "ascending");
+            $arraySort = array("column" => "Typ", "direction" => "ascending");
             // Tabelle für die gefundenen 1-Wire-Devices
             $arrayOWColumns = array();
-            $arrayOWColumns[] = array("label" => "Name", "name" => "Name", "width" => "120px", "add" => "");
-            $arrayOWColumns[] = array("label" => "Id", "name" => "Id", "width" => "120px", "add" => "");
-            $arrayOWColumns[] = array("label" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
-            $arrayOWColumns[] = array("label" => "Temp", "name" => "Temp", "width" => "auto", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "", "onClick" => $this->AddOWNetDevice());
+            $arrayOWColumns[] = array("caption" => "Name", "name" => "Name", "width" => "120px", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "180px", "add" => "");
+            $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "auto", "add" => "");
 
             If ($this->GetBuffer("OW_Handle") >= 0) {
                 // 1-Wire-Devices einlesen und in das Values-Array kopieren
                 $this->OWSearchStart();
                 $OWDeviceArray = json_decode($this->GetBuffer('OWDeviceArray'), true);
-                $this->_log('OWNet KonfigurationData', count($OWDeviceArray));
                 If (count($OWDeviceArray)) {
                     $arrayOWValues = array();
                     for ($i = 0; $i < Count($OWDeviceArray); $i++) {
-                        $arrayOWValues[] = array("Name" => $OWDeviceArray[$i]['Name'], "Id" => $OWDeviceArray[$i]['Id'], "Typ" => $OWDeviceArray[$i]['Typ'], "Temp" => $OWDeviceArray[$i]['Temp']);
+                        $arrayOWValues[] = array("Typ" => $OWDeviceArray[$i]['Typ'], "Id" => $OWDeviceArray[$i]['Id'], "Name" => $OWDeviceArray[$i]['Name'], "Temp" => $OWDeviceArray[$i]['Temp']);
                     }
-                    $formElements[] = array("type" => "List", "name" => "OW_Devices", "caption" => "1-Wire-Devices", "rowCount" => 5, "add" => false, "delete" => false, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
+                    $formElements[] = array("type" => "List", "name" => "OWNet_Devices", "caption" => $this->Translate("OWNet Devices"), "rowCount" => 5, "add" => false, "delete" => false, "sort" => $arraySort, "columns" => $arrayOWColumns, "values" => $arrayOWValues);
                     $formElements[] = array("type" => "Label", "label" => "_____________________________________________________________________________________________________");
                 }
                 else {
-                    $formElements[] = array("type" => "Label", "label" => "Es wurden keine 1-Wire-Devices gefunden.");
+                    $formElements[] = array("type" => "Label", "label" => $this->Translate("no 1-Wire devices found");
                 }
             }
 
@@ -274,12 +273,18 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                 $this->_log('OWNet', "Connect to '$connect' failed");
             }
         }
-            /**
-             * @param null $sender
-             * @param mixed $message
-             * @param bool $debug
-             */
-            protected function _log($sender = NULL, $message = '')
+
+        protected function AddOWNetDevice()
+        {
+            $this->_log('OWNet', 'Variable anlegen');
+        }
+
+        /**
+        * @param null $sender
+        * @param mixed $message
+        * @param bool $debug
+        */
+        protected function _log($sender = NULL, $message = '')
         {
             if ($this->ReadPropertyBoolean('log')) {
                 if (is_array($message)) {
