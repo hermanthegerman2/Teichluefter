@@ -252,7 +252,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
                                         //print " Alias '$alias',Temp $temp\n";
                                         $caps .= ';Temp';
                                         $this->_log('OWNet Device', $data);
-                                        $OWDeviceArray[$dev] = $data;
+                                        $OWDeviceArray[$dirs] = $data;
                                     }
                                     break;
                                 default:
