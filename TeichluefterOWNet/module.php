@@ -126,8 +126,8 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             // Tabelle für die gefundenen 1-Wire-Devices
             $arrayOWEdit[] = array("type" => "Button", "caption" => "add Device", "onClick" => $this->AddOWNetDevice());
             $arrayOWColumns = array();
-            $arrayOWColumns[] = array("edit" => $arrayOWEdit);
-            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
+            //$arrayOWColumns[] = array("edit" => $arrayOWEdit);
+            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => true, "edit" => $arrayOWEdit);
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "130px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "60px", "add" => "");
 
