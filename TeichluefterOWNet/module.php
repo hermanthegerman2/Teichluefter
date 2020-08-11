@@ -124,7 +124,7 @@ require_once __DIR__ . '/../libs/images.php';  // eingebettete Images
             $arraySort = array("column" => "Typ", "direction" => "ascending");
             // Tabelle für die gefundenen 1-Wire-Devices
             $arrayOWColumns = array();
-            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "", "edit" => "SelectInstance", "onClick" => $this->AddOWNetDevice(), "confirm" => $this->Translate("Do you want to add the device?"));
+            $arrayOWColumns[] = array("caption" => "Typ", "name" => "Typ", "width" => "70px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Name", "name" => "Name", "width" => "120px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Id", "name" => "Id", "width" => "180px", "add" => "");
             $arrayOWColumns[] = array("caption" => "Temp", "name" => "Temp", "width" => "auto", "add" => "");
